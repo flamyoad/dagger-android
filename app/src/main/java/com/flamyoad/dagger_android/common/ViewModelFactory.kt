@@ -1,4 +1,4 @@
-package com.flamyoad.dagger_android.di
+package com.flamyoad.dagger_android.common
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
