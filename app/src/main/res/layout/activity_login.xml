@@ -26,10 +26,11 @@ is using @={variable} instead @{variable}
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#97000000"
+            android:clickable="true"
+            android:translationZ="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:translationZ="4dp"
-            android:background="#97000000"
             app:visibleGone="@{vm.isLoading}"
             >
 
@@ -37,8 +38,8 @@ is using @={variable} instead @{variable}
                 android:layout_width="54dp"
                 android:layout_height="54dp"
                 android:layout_gravity="center"
-                app:indicatorColor="@color/white"
                 android:indeterminate="true"
+                app:indicatorColor="@color/white"
                 />
 
         </FrameLayout>

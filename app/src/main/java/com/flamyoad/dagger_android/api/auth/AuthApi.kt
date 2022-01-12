@@ -6,5 +6,5 @@ import retrofit2.http.Path
 
 interface AuthApi {
     @GET("users/{id}")
-    fun login(@Path("id") id: Int): Single<UserResponse>
+    fun getUserInfo(@Path("id") id: Int): Single<UserResponse>
 }

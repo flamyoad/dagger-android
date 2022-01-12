@@ -1,29 +1,35 @@
 package com.flamyoad.dagger_android.ui.user
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
+import com.flamyoad.dagger_android.BR
 import com.flamyoad.dagger_android.R
+import com.flamyoad.dagger_android.common.BaseFragment
+import com.flamyoad.dagger_android.common.ViewModelFactory
+import com.flamyoad.dagger_android.databinding.FragmentUserBinding
+import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
+class UserFragment : DaggerFragment() {
 
-class UserFragment : Fragment() {
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private val viewModel: UserViewModel by viewModels { viewModelFactory }
+
+    private lateinit var binding: FragmentUserBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user, container, false)
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance() = UserFragment()
+    ): View {
+        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_user, container, false)
+        binding.setVariable(BR.vm, viewModel)
+        return binding.root
     }
 }

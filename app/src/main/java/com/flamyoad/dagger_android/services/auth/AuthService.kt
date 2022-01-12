@@ -6,4 +6,5 @@ import io.reactivex.rxjava3.core.Single
 interface AuthService {
     fun login(userId: Int, password: String): Single<UserResponse>
     fun logout(): Single<Unit>
+    fun getUserInfo(): Single<UserResponse>
 }

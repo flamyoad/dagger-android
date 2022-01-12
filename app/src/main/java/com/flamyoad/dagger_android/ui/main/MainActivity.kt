@@ -2,12 +2,19 @@ package com.flamyoad.dagger_android.ui.main
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import com.flamyoad.dagger_android.R
 import com.flamyoad.dagger_android.common.BaseActivity
 import com.flamyoad.dagger_android.databinding.ActivityMainBinding
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
+import javax.inject.Inject
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity(), HasSupportFragmentInjector {
+
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
     private enum class NavigationFragmentType {
         FIRST,
@@ -17,6 +24,8 @@ class MainActivity : BaseActivity() {
     }
 
     private lateinit var binding: ActivityMainBinding
+
+    override fun supportFragmentInjector() = dispatchingAndroidInjector
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,8 +63,6 @@ class MainActivity : BaseActivity() {
         return when (type) {
             NavigationFragmentType.FIRST -> NavHostFragment.create(R.navigation.todo)
             NavigationFragmentType.SECOND -> NavHostFragment.create(R.navigation.user)
-//            NavigationFragmentType.THIRD -> NavHostFragment.create(R.navigation.library)
-//            NavigationFragmentType.FOURTH -> NavHostFragment.create(R.navigation.more)
             else -> throw java.lang.IllegalArgumentException()
         }
     }

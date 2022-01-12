@@ -11,6 +11,9 @@
     <string name="login_password_edittext_hint">Password</string>
     <string name="login_error_text">Please try again</string>
     <string name="login_button_signup">Sign up</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="user_id_label">User ID:</string>
+    <string name="user_name_label">Name:</string>
+    <string name="error_layout_text">Error has occurred</string>
+    <string name="error_layout_retry">Retry</string>
 </resources>

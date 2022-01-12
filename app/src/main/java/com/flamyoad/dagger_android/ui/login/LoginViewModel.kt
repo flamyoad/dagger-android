@@ -4,6 +4,7 @@ import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import com.flamyoad.dagger_android.services.auth.AuthService
+import com.flamyoad.dagger_android.utils.applyIoScheduler
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo
@@ -35,11 +36,10 @@ class LoginViewModel @Inject constructor(
             .delay(100, TimeUnit.MILLISECONDS)
             .doOnSubscribe { isLoading.set(true) }
             .doFinally { isLoading.set(false) }
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+            .applyIoScheduler()
             .subscribeBy(
                 onSuccess = { navigateToMain.onNext(true) },
-                onError = { isLoginError.set(true) },
+                onError = { e -> isLoginError.set(true) },
             ).addTo(disposeBag)
     }
 

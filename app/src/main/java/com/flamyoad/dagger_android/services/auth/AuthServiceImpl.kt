@@ -3,7 +3,6 @@ package com.flamyoad.dagger_android.services.auth
 import com.flamyoad.dagger_android.api.auth.AuthApi
 import com.flamyoad.dagger_android.api.auth.UserResponse
 import com.flamyoad.dagger_android.persistence.UserStorage
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 
@@ -13,7 +12,7 @@ class AuthServiceImpl @Inject constructor(
 ): AuthService {
 
     override fun login(userId: Int, password: String): Single<UserResponse> {
-        return authApi.login(userId).doAfterSuccess {
+        return authApi.getUserInfo(userId).doAfterSuccess {
             userStorage.writeInt(ACCOUNT_ID, userId)
         }
     }
@@ -22,6 +21,11 @@ class AuthServiceImpl @Inject constructor(
         return Single.fromCallable {
             userStorage.delete(ACCOUNT_ID)
         }
+    }
+
+    override fun getUserInfo(): Single<UserResponse> {
+        val currAccountId = userStorage.getInt(ACCOUNT_ID)
+        return authApi.getUserInfo(currAccountId)
     }
 
     companion object {
