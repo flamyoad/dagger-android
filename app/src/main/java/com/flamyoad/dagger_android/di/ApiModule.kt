@@ -1,6 +1,7 @@
 package com.flamyoad.dagger_android.di
 
 import com.flamyoad.dagger_android.api.auth.AuthApi
+import com.flamyoad.dagger_android.api.todo.TodoApi
 import com.flamyoad.dagger_android.di.scope.ApplicationScope
 import com.flamyoad.dagger_android.utils.Constant
 import dagger.Module
@@ -38,4 +39,11 @@ class ApiModule {
     fun provideAuthApi(retrofit: Retrofit): AuthApi {
         return retrofit.create(AuthApi::class.java)
     }
+
+    @ApplicationScope
+    @Provides
+    fun provideTodoApi(retrofit: Retrofit): TodoApi {
+        return retrofit.create(TodoApi::class.java)
+    }
+
 }

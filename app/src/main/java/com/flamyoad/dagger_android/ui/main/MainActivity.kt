@@ -11,21 +11,14 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
-class MainActivity : BaseActivity(), HasSupportFragmentInjector {
-
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+class MainActivity : BaseActivity() {
 
     private enum class NavigationFragmentType {
         FIRST,
         SECOND,
-        THIRD,
-        FOURTH
     }
 
     private lateinit var binding: ActivityMainBinding
-
-    override fun supportFragmentInjector() = dispatchingAndroidInjector
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +32,6 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
             val type = when (it.itemId) {
                 R.id.first -> NavigationFragmentType.FIRST
                 R.id.second -> NavigationFragmentType.SECOND
-                R.id.third -> NavigationFragmentType.THIRD
-                R.id.fourth -> NavigationFragmentType.FOURTH
                 else -> throw IllegalArgumentException("No such type")
             }
             showFragment(type)
@@ -63,7 +54,6 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
         return when (type) {
             NavigationFragmentType.FIRST -> NavHostFragment.create(R.navigation.todo)
             NavigationFragmentType.SECOND -> NavHostFragment.create(R.navigation.user)
-            else -> throw java.lang.IllegalArgumentException()
         }
     }
 

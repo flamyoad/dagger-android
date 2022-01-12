@@ -11,14 +11,14 @@
         android:icon="@drawable/ic_baseline_people_outline_24"
         android:title="@string/bottom_nav_item_second" />
 
-    <item
-        android:id="@+id/third"
-        android:icon="@drawable/ic_baseline_people_outline_24"
-        android:title="@string/bottom_nav_item_third" />
+<!--    <item-->
+<!--        android:id="@+id/third"-->
+<!--        android:icon="@drawable/ic_baseline_people_outline_24"-->
+<!--        android:title="@string/bottom_nav_item_third" />-->
 
-    <item
-        android:id="@+id/fourth"
-        android:icon="@drawable/ic_baseline_people_outline_24"
-        android:title="@string/bottom_nav_item_fourth" />
+<!--    <item-->
+<!--        android:id="@+id/fourth"-->
+<!--        android:icon="@drawable/ic_baseline_people_outline_24"-->
+<!--        android:title="@string/bottom_nav_item_fourth" />-->
 
 </menu>

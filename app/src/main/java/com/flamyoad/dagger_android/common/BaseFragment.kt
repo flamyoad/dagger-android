@@ -7,7 +7,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import javax.inject.Inject
 
 open class BaseFragment: Fragment(), Injectable {
-    val disposeBag = CompositeDisposable()
+    protected val disposeBag = CompositeDisposable()
 
     @Inject
     lateinit var navigator: Navigator

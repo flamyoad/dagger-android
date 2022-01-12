@@ -1,7 +1,8 @@
-package com.flamyoad.dagger_android.ui.todo
+package com.flamyoad.dagger_android.di.todo
 
 import androidx.lifecycle.ViewModel
 import com.flamyoad.dagger_android.di.ViewModelKey
+import com.flamyoad.dagger_android.ui.todo.TodoViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
