@@ -1,24 +1,28 @@
 package com.flamyoad.dagger_android.ui.login
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
+import androidx.databinding.DataBindingUtil
+import com.flamyoad.dagger_android.BR
 import com.flamyoad.dagger_android.R
+import com.flamyoad.dagger_android.common.BaseActivity
 import com.flamyoad.dagger_android.common.ViewModelFactory
-import dagger.android.AndroidInjection
-import dagger.android.DaggerActivity
-import dagger.android.support.AndroidSupportInjection
+import com.flamyoad.dagger_android.databinding.ActivityLoginBinding
 import javax.inject.Inject
 
-class LoginActivity : AppCompatActivity() {
-    @Inject
-    lateinit var vmFactory: ViewModelFactory
+class LoginActivity : BaseActivity() {
 
-    private val viewModel: LoginViewModel by viewModels { vmFactory }
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    private val viewModel: LoginViewModel by viewModels { viewModelFactory }
+
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+        binding.setVariable(BR.vm, viewModel)
     }
 }
