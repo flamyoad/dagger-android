@@ -5,25 +5,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import com.flamyoad.dagger_android.R
+import com.flamyoad.dagger_android.common.BaseFragment
+import com.flamyoad.dagger_android.common.ViewModelFactory
+import com.flamyoad.dagger_android.databinding.FragmentTodoBinding
+import javax.inject.Inject
 
+class TodoFragment : BaseFragment() {
 
-class TodoFragment : Fragment() {
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private val viewModel: TodoViewModel by viewModels { viewModelFactory }
+
+    private lateinit var binding: FragmentTodoBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user, container, false)
+    ): View {
+        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_todo, container, false)
+        return binding.root
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance() = TodoFragment()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 }

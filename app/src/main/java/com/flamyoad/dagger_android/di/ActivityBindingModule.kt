@@ -5,6 +5,9 @@ import com.flamyoad.dagger_android.ui.login.LoginModule
 import com.flamyoad.dagger_android.di.scope.ActivityScope
 import com.flamyoad.dagger_android.ui.login.LoginActivity
 import com.flamyoad.dagger_android.ui.main.MainActivity
+import com.flamyoad.dagger_android.ui.main.MainFragmentBindingModule
+import com.flamyoad.dagger_android.ui.todo.TodoViewModelsModule
+import com.flamyoad.dagger_android.ui.user.UserModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -21,7 +24,11 @@ abstract class ActivityBindingModule {
     abstract fun contributeLoginActivity(): LoginActivity
 
     @ActivityScope
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [
+        MainFragmentBindingModule::class,
+        TodoViewModelsModule::class,
+        UserModule::class,
+    ])
     abstract fun contributeMainActivity(): MainActivity
 
 }
