@@ -2,7 +2,7 @@ package com.flamyoad.dagger_android.di
 
 import com.flamyoad.dagger_android.api.auth.AuthApi
 import com.flamyoad.dagger_android.di.scope.ApplicationScope
-import com.flamyoad.dagger_android.services.AuthService
+import com.flamyoad.dagger_android.services.auth.AuthService
 import dagger.Module
 import dagger.Provides
 

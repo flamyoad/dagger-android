@@ -3,8 +3,7 @@ package com.flamyoad.dagger_android.ui.login
 import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
-import com.flamyoad.dagger_android.navigator.Navigator
-import com.flamyoad.dagger_android.services.AuthService
+import com.flamyoad.dagger_android.services.auth.AuthService
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo
