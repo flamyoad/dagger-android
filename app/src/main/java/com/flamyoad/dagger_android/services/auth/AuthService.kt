@@ -1,4 +1,4 @@
-package com.flamyoad.dagger_android.services
+package com.flamyoad.dagger_android.services.auth
 
 import com.flamyoad.dagger_android.api.auth.AuthApi
 import com.flamyoad.dagger_android.api.auth.UserResponse
