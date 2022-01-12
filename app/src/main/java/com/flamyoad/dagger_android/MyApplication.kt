@@ -1,14 +1,22 @@
 package com.flamyoad.dagger_android
 
-import com.flamyoad.dagger_android.di.DaggerAppComponent
+import android.app.Activity
+import android.app.Application
+import com.flamyoad.dagger_android.di.AppInjector
 import dagger.android.AndroidInjector
-import dagger.android.DaggerApplication
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
+import javax.inject.Inject
 
-class MyApplication: DaggerApplication() {
+class MyApplication: Application(), HasActivityInjector {
 
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent.builder()
-            .application(this)
-            .build()
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
+
+    override fun onCreate() {
+        super.onCreate()
+        AppInjector.init(this)
     }
+
+    override fun activityInjector(): AndroidInjector<Activity> = dispatchingAndroidInjector
 }

@@ -4,12 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.flamyoad.dagger_android.common.BaseActivity
 import com.flamyoad.dagger_android.di.Injectable
 import com.flamyoad.dagger_android.ui.login.LoginActivity
+import dagger.android.AndroidInjection
 import dagger.android.DaggerActivity
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), Injectable {
+class MainActivity : BaseActivity() {
 
     @Inject
     lateinit var noobString: String
