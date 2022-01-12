@@ -26,19 +26,24 @@
             android:layout_height="match_parent"
             >
 
+            <!--
+            https://stackoverflow.com/questions/50722783/applying-databinding-adapter-to-include-tag
+            Not able to use BindingAdapters with included layout elements, but can pass vars into it.
+            -->
             <include
                 layout="@layout/loading_layout"
-                app:visibleGone="@{vm.isLoading}"
+                bind:visibleGone="@{vm.isLoading}"
                 />
 
             <include
                 layout="@layout/error_layout"
-                visibleGone="@{vm.isError}"
+                bind:visibleGone="@{vm.isLoading}"
                 />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                app:visibleGone="@{vm.isContent}"
                 >
 
                 <TextView

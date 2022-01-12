@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:translationZ="4dp"
     >
 
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:layout_gravity="center"
-        app:indicatorColor="@color/purple_500"
-        android:indeterminate="true"
-        />
+    <data>
+        <variable
+            name="visibleGone"
+            type="Boolean"
+            />
+    </data>
 
-</FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:translationZ="4dp"
+        app:visibleGone="@{visibleGone}"
+        >
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_gravity="center"
+            app:indicatorColor="@color/purple_500"
+            android:indeterminate="true"
+            />
+
+    </FrameLayout>
+</layout>

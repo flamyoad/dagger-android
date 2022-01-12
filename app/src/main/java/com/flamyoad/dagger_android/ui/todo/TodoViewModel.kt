@@ -1,5 +1,6 @@
 package com.flamyoad.dagger_android.ui.todo
 
+import androidx.annotation.VisibleForTesting
 import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
@@ -19,6 +20,7 @@ class TodoViewModel @Inject constructor(private val todoService: TodoService) : 
         getTodos()
     }
 
+    @VisibleForTesting
     fun getTodos() {
         todoService.getTodos()
             .doOnSubscribe { isLoading.set(true) }

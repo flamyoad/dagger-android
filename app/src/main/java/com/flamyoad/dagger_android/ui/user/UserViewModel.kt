@@ -13,6 +13,7 @@ class UserViewModel @Inject constructor(private val authService: AuthService) : 
     val userId = ObservableField<String>()
     val userName = ObservableField<String>()
 
+    // todo: Maybe should extract all 3 into same field (Sealed class!)
     val isLoading = ObservableField<Boolean>()
     val isError = ObservableField<Boolean>()
     val isContent = ObservableField<Boolean>()
