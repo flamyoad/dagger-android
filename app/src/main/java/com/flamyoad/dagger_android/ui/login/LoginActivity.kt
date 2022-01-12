@@ -1,7 +1,6 @@
 package com.flamyoad.dagger_android.ui.login
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.flamyoad.dagger_android.BR
@@ -9,6 +8,8 @@ import com.flamyoad.dagger_android.R
 import com.flamyoad.dagger_android.common.BaseActivity
 import com.flamyoad.dagger_android.common.ViewModelFactory
 import com.flamyoad.dagger_android.databinding.ActivityLoginBinding
+import io.reactivex.rxjava3.kotlin.addTo
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import javax.inject.Inject
 
 class LoginActivity : BaseActivity() {
@@ -24,5 +25,9 @@ class LoginActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         binding.setVariable(BR.vm, viewModel)
+
+        viewModel.navigateToMain.subscribeBy(onNext = {
+            navigator.toMainActivity(this)
+        }).addTo(disposeBag)
     }
 }

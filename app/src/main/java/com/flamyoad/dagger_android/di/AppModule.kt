@@ -1,6 +1,9 @@
 package com.flamyoad.dagger_android.di
 
-import dagger.Binds
+import com.flamyoad.dagger_android.MyApplication
+import com.flamyoad.dagger_android.di.scope.ApplicationScope
+import com.flamyoad.dagger_android.navigator.Navigator
+import com.flamyoad.dagger_android.navigator.NavigatorImpl
 import dagger.Module
 import dagger.Provides
 
@@ -12,4 +15,10 @@ class AppModule {
 
     @get:Provides
     val provideString: String = "hehe"
+
+    @ApplicationScope
+    @Provides
+    fun provideNavigator(app: MyApplication): Navigator {
+        return NavigatorImpl(app)
+    }
 }
