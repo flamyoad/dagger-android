@@ -14,6 +14,10 @@
         android:theme="@style/Theme.Daggerandroid"
         >
         <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false"
+            />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             >

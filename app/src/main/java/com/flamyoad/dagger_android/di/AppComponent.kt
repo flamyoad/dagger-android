@@ -10,6 +10,9 @@ import dagger.android.support.AndroidSupportInjectionModule
 @ApplicationScope
 @Component(modules = [
     AndroidSupportInjectionModule::class,
+    ViewModelFactoryModule::class,
+    ActivityBindingModule::class,
+    AppModule::class,
 ])
 interface AppComponent: AndroidInjector<MyApplication> {
 
@@ -21,3 +24,13 @@ interface AppComponent: AndroidInjector<MyApplication> {
         fun build(): AppComponent
     }
 }
+
+//@Component(modules = [AppModule::class, ...])
+//@Singleton
+//interface AppComponent : AndroidInjector<MyApp> {
+//
+//    @Component.Factory
+//    interface Factory : AndroidInjector.Factory<MyApp> {
+//        override fun create(@BindsInstance instance: MyApp): AppComponent
+//    }
+//}
