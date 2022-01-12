@@ -8,14 +8,14 @@ class UserStorageImpl(private val app: MyApplication) : UserStorage {
     override fun writeInt(key: String, value: Int) {
         with(app.sharedPref().edit()) {
             putInt(key, value)
-            commit()
+            apply()
         }
     }
 
     override fun writeString(key: String, value: String) {
         with(app.sharedPref().edit()) {
             putString(key, value)
-            commit()
+            apply()
         }
     }
 
@@ -25,6 +25,10 @@ class UserStorageImpl(private val app: MyApplication) : UserStorage {
 
     override fun getString(key: String): String {
         return app.sharedPref().getString(key, "") ?: ""
+    }
+
+    override fun delete(key: String) {
+        app.sharedPref().edit().remove(key).apply()
     }
 
     private fun MyApplication.sharedPref(): SharedPreferences {

@@ -7,4 +7,6 @@ interface UserStorage {
 
     fun getInt(key: String): Int
     fun getString(key: String): String
+
+    fun delete(key: String)
 }

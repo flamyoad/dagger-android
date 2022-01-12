@@ -1,4 +1,4 @@
-package com.flamyoad.dagger_android.di.login
+package com.flamyoad.dagger_android.ui.login
 
 import androidx.lifecycle.ViewModel
 import com.flamyoad.dagger_android.di.ViewModelKey
