@@ -1,7 +1,7 @@
 package com.flamyoad.dagger_android.di
 
 import com.flamyoad.dagger_android.EntryPointActivity
-import com.flamyoad.dagger_android.di.login.LoginModule
+import com.flamyoad.dagger_android.ui.login.LoginModule
 import com.flamyoad.dagger_android.di.scope.ActivityScope
 import com.flamyoad.dagger_android.ui.login.LoginActivity
 import com.flamyoad.dagger_android.ui.main.MainActivity
