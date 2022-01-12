@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 open class BaseActivity: AppCompatActivity(), HasSupportFragmentInjector {
 
-    val disposeBag = CompositeDisposable()
+    protected val disposeBag = CompositeDisposable()
 
     @Inject
     lateinit var navigator: Navigator

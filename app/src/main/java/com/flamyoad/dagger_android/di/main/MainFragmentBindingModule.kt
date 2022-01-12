@@ -1,4 +1,4 @@
-package com.flamyoad.dagger_android.ui.main
+package com.flamyoad.dagger_android.di.main
 
 import com.flamyoad.dagger_android.ui.todo.TodoFragment
 import com.flamyoad.dagger_android.ui.user.UserFragment
